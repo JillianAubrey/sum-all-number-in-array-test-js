@@ -1,5 +1,11 @@
 function sumItems(array) {
-  // Sum all the numbers in the array
+  const arraySum = array.reduce((sum, item) => {
+    if (Array.isArray(item)) {
+      return sum + sumItems(item);
+    }
+    return sum + item;
+  }, 0);
+  return arraySum;
 }
 
 module.exports = sumItems;
